@@ -1,0 +1,9 @@
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessBusinessLayer\bin\Debug\AccessBusinessLayer.dll
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessBusinessLayer\bin\Debug\AccessBusinessLayer.pdb
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessBusinessLayer\bin\Debug\AccessDataLayer.dll
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessBusinessLayer\bin\Debug\AccessDataLayer.pdb
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessBusinessLayer\obj\Debug\AccessBusinessLayer.csproj.AssemblyReference.cache
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessBusinessLayer\obj\Debug\AccessBusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessBusinessLayer\obj\Debug\AccessBusinessLayer.csproj.CopyComplete
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessBusinessLayer\obj\Debug\AccessBusinessLayer.dll
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessBusinessLayer\obj\Debug\AccessBusinessLayer.pdb

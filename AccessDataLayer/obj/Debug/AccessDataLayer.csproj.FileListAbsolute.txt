@@ -1,0 +1,6 @@
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessDataLayer\bin\Debug\AccessDataLayer.dll
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessDataLayer\bin\Debug\AccessDataLayer.pdb
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessDataLayer\obj\Debug\AccessDataLayer.csproj.AssemblyReference.cache
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessDataLayer\obj\Debug\AccessDataLayer.csproj.CoreCompileInputs.cache
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessDataLayer\obj\Debug\AccessDataLayer.dll
+C:\Users\bilal\OneDrive\C#\WorkOut\AccessDataLayer\obj\Debug\AccessDataLayer.pdb
