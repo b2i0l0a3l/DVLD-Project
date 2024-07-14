@@ -80,6 +80,12 @@
     <Compile Include="FrmLoginScreen.Designer.cs">
       <DependentUpon>FrmLoginScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmManageApplicationsType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageApplicationsType.Designer.cs">
+      <DependentUpon>frmManageApplicationsType.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPeople.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,12 @@
     </Compile>
     <Compile Include="frmShowPersonInfo.Designer.cs">
       <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserInfo.Designer.cs">
+      <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUsers.cs">
       <SubType>Form</SubType>
@@ -124,6 +136,12 @@
     <Compile Include="UserInfoFIlter.Designer.cs">
       <DependentUpon>UserInfoFIlter.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmManageApplicationsType.resx">
+      <DependentUpon>frmManageApplicationsType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserInfo.resx">
+      <DependentUpon>frmUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsAddNewPeople.resx">
       <DependentUpon>UsAddNewPeople.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +212,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\3631626.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %282%29.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2245126.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8634230.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

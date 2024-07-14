@@ -17,46 +17,69 @@ namespace WindowsFormsApp1
 
         public delegate void Handler(DataTable PersonID);
         public event Handler DataBack;
+        public clsPeople p;
 
         public UsPersonDetails()
         {
             InitializeComponent();
         }
+        private void fillTable()
+        {
+            if (p == null)
+               return ;
 
+            DataTable dt = new DataTable();
+            dt.Columns.Add("PersonID",typeof(int));
+            dt.Columns.Add("FirstName", typeof(string));
+            dt.Columns.Add("SecondName", typeof(string));
+            dt.Columns.Add("ThirdName", typeof(string));
+            dt.Columns.Add("LastName", typeof(string));
+            dt.Columns.Add("NationalNo", typeof(string));
+            dt.Columns.Add("DateOfBirth", typeof(DateTime));
+            dt.Columns.Add("Gendor", typeof(byte));
+            dt.Columns.Add("Phone", typeof(string));
+            dt.Columns.Add("ImagePath", typeof(string));
+            dt.Columns.Add("Email", typeof(string));
+            dt.Columns.Add("Address", typeof(string));
+            dt.Columns.Add("Nationality", typeof(string));
+            dt.Rows.Add(p.PersonID, p.FirstName,p.SecondName,p.ThirdName,p.LastName,p.NationalNo,
+                p.DateOfBirth,p.Gendor,p.Phone,p.ImagePath,p.Email,p.Address,p.Nationality);
+           DataBack?.Invoke(dt);
+        }
         public void loadData()
         {
-            if (Settings.p == null)
-            {
+            if (p == null)
                 return;
-            }
-            lblFirstName.Text = Settings.p.FirstName;
-            lblThirdName.Text = Settings.p.ThirdName;
-            lblLastName.Text = Settings.p.LastName;
-            lblSeconName.Text = Settings.p.SecondName;
-            lblNationalNo.Text = Settings.p.NationalNo;
-            lblDateOfBirth.Text = Settings.p.DateOfBirth.ToString();
-            if (Settings.p.Gendor == 0)
+
+            lblFirstName.Text = p.FirstName;
+            lblThirdName.Text = p.ThirdName;
+            lblLastName.Text = p.LastName;
+            lblSeconName.Text = p.SecondName;
+            lblNationalNo.Text = p.NationalNo;
+            lblDateOfBirth.Text = p.DateOfBirth.ToString();
+            if (p.Gendor == 0)
                 lblGendor.Text = "Male";
             else
                 lblGendor.Text = "Female";
-            lblPhone.Text = Settings.p.Phone;
-            if (Settings.p.ImagePath != null)
-                pictureBox1.ImageLocation = Settings.p.ImagePath;
+            lblPhone.Text = p.Phone;
+            if (p.ImagePath != null)
+                pictureBox1.ImageLocation = p.ImagePath;
 
 
-            lblEmail.Text = Settings.p.Email;
-            lblCountry.Text = clsCountry.GetCountryName(Settings.p.Nationality);
-            lblAddress.Text = Settings.p.Address;
+            lblEmail.Text = p.Email;
+            lblAddress.Text = p.Address;
+            lblCountry.Text = clsCountry.GetCountryName(p.Nationality);
+
+            fillTable();
         }
-        private void FillPersonData(DataView dv)
-        {
-            Settings.p = clsPeople.Find((int)dv[0][0]);
-            Settings.User = new ClsUsers();
-        }
+
         public void FillWithDataTable(DataView dv)
         {
-            FillPersonData(dv);
-
+            if(dv == null || dv.Count <= 0)
+            {
+                MessageBox.Show("User Not Found");
+                return;
+            }
             lblNationalNo.Text = dv[0][1].ToString();
             lblFirstName.Text = dv[0][2].ToString();
             lblSeconName.Text = dv[0][3].ToString();
@@ -74,12 +97,13 @@ namespace WindowsFormsApp1
             if (dv[0][12].ToString() != null)
                 pictureBox1.ImageLocation = dv[0][12].ToString();
 
+
             DataBack?.Invoke(dv.ToTable());
 
         }
 
         public void Refrech()
-        {          
+        {
             loadData();
         }
         private void PersonDetails_Load(object sender, EventArgs e)
@@ -89,13 +113,11 @@ namespace WindowsFormsApp1
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if(Settings.p == null)
+            if(p == null)
             {
                 return;
             }
-            frmAddPerson frm = new frmAddPerson(Settings.p.PersonID);
-
-            
+            frmAddPerson frm = new frmAddPerson(p.PersonID);
             frm.ShowDialog();
             Refrech();
         }

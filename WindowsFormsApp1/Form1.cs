@@ -19,13 +19,13 @@ namespace WindowsFormsApp1
         }
 
         private frmPeople frm = new frmPeople();
-        private    frmUsers frm2 = new frmUsers();
         private void peopleToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frm.MdiParent = this;
             frm.Show();
         }
-
+        
+        private    frmUsers frm2 = new frmUsers();
         private void ShowLogin()
         {
             this.Hide();
@@ -41,6 +41,39 @@ namespace WindowsFormsApp1
         {
             frm2.MdiParent = this;
             frm2.Show();
+        }
+
+        private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserInfo frm = new frmUserInfo();
+            frm.Show();
+        }
+
+        private void accountSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChangePassword frm = new frmChangePassword();
+            frm.ShowDialog();
+        }
+
+         frmManageApplicationsType frm3 = new frmManageApplicationsType();
+
+
+        private void applicationsTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm3.MdiParent = this;
+            frm3.Show();
         }
     }
 }

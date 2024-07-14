@@ -17,7 +17,7 @@ namespace WindowsFormsApp1
         public frmShowPersonInfo(int PersonID)
         {
             InitializeComponent();
-            Settings.p = clsPeople.Find(PersonID);
+            personDetails1.p = clsPeople.Find(PersonID);
         }
     
 

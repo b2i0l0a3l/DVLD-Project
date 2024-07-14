@@ -13,37 +13,31 @@ namespace WindowsFormsApp1
 {
     public partial class UserInfoFIlter : UserControl
     {
-        public DataRow dr ;
+        public DataRow PrimaryKey;
+        private DataTable dat;
 
-
-        private DataTable dt;
-
-
+        public int PersonID;
         public UserInfoFIlter()
         {
             InitializeComponent();
             personDetails1.DataBack += Databack;
-        }
 
+        }
         private void _Refrech()
         {
+
             FillComboBox();
-            if (Settings.User != null)
-            {
-                comboBox1.Enabled = false;
-                Settings.p = clsPeople.Find(Settings.User.PersonID);
-                personDetails1.Refrech();
-                textBox1.Enabled = false;
-                button1.Enabled = false;
-                button2.Enabled = false;
-            }
+
+
         }
         private void FillComboBox()
         {
-            dt = clsPeople.GetAllPeople();
-            if (dt == null)
+            dat = clsPeople.GetAllPeople();
+
+            if (dat == null)
                 return;
-            foreach (DataColumn col in dt.Columns)
+
+            foreach (DataColumn col in dat.Columns)
             {
                 comboBox1.Items.Add(col.ToString());
             }
@@ -51,30 +45,38 @@ namespace WindowsFormsApp1
         }
         private void UserInfoFIlter_Load(object sender, EventArgs e)
         {
+            if(this.PersonID != 0)
+            {
+                personDetails1.p = clsPeople.Find(PersonID);
+                personDetails1.Refrech();
+            }
+           
             _Refrech();
         }
         private void Databack(DataTable dt)
         {
             DataColumn[] dc = new DataColumn[1];
+  
             dc[0] = dt.Columns["PersonID"];
             dt.PrimaryKey = dc;
-            dr = dt.Rows[0];
+            PrimaryKey = dt.Rows[0];
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (!string.IsNullOrEmpty(textBox1.Text) || textBox1.Text == "")
-            {
-   
-                personDetails1.FillWithDataTable(Settings.FilterByLike(dt,comboBox1.GetItemText(comboBox1.SelectedItem.ToString()), textBox1.Text));
-            }
+            if (!string.IsNullOrEmpty(textBox1.Text))
+
+                personDetails1.FillWithDataTable(Settings.FilterByLike(dat, comboBox1.GetItemText(comboBox1.SelectedItem.ToString()), textBox1.Text));
+
+            else
+                MessageBox.Show("Please Enter a Valid Person.");
         }
         private void FF(int PersonID)
         {
-            Settings.p = clsPeople.Find(PersonID);
-            textBox1.Text = Settings.p.NationalNo;
-            personDetails1.Refrech();
+
+            clsPeople p = clsPeople.Find(PersonID);
+            textBox1.Text = p.NationalNo;
         }
         private void button2_Click(object sender, EventArgs e)
         {

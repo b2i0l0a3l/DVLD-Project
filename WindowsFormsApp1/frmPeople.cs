@@ -23,7 +23,6 @@ namespace WindowsFormsApp1
         {
             dataGridView1.DataSource = clsPeople.GetAllPeople();
             comboBox2.SelectedIndex = 0;
-            Settings.p = null;
         }
         private void People_Load(object sender, EventArgs e)
         {

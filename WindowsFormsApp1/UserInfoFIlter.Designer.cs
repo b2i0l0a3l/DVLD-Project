@@ -83,9 +83,9 @@
             // personDetails1
             // 
             this.personDetails1.BackColor = System.Drawing.Color.White;
-            this.personDetails1.Location = new System.Drawing.Point(-16, 104);
+            this.personDetails1.Location = new System.Drawing.Point(0, 104);
             this.personDetails1.Name = "personDetails1";
-            this.personDetails1.Size = new System.Drawing.Size(1145, 474);
+            this.personDetails1.Size = new System.Drawing.Size(955, 411);
             this.personDetails1.TabIndex = 0;
             // 
             // UserInfoFIlter

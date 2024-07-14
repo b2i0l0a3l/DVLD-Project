@@ -21,7 +21,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             label1.Text = "Update Person";
             lblPersonID.Text = PersonID.ToString();
-            Settings.p = clsPeople.Find(PersonID);
+            addNewPeople1.p = clsPeople.Find(PersonID);
         }
         public frmAddPerson()
         {

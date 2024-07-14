@@ -20,16 +20,12 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-        
-
-        
-
 
         private void AddNewPeople_Load(object sender, EventArgs e)
         {
              _RefrechScreen();
 
-                LoadPersonData();
+                
         }
 
 
@@ -69,19 +65,20 @@ namespace WindowsFormsApp1
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (Settings.p == null)
+
+            if (p == null)
             {
-                Settings.p = new clsPeople();
+                p = new clsPeople();
             }
 
             SavePersonDAta();
 
-            if (Settings.p.Save())
+            if (p.Save())
             {
                 MessageBox.Show("Person Saved Successfully.");
 
                 if(OnPersonSaved != null)
-                    PersonSaved(Settings.p.PersonID);
+                    PersonSaved(p.PersonID);
                 
             }
 

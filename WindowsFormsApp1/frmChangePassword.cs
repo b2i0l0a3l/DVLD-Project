@@ -13,41 +13,85 @@ namespace WindowsFormsApp1
 {
     public partial class frmChangePassword : Form
     {
+        private ClsUsers User;
+        private clsPeople p;
+        enum enMode { Upper , Down }
+        private enMode Mode;
+
         public frmChangePassword()
         {
             InitializeComponent();
+            personDetails1.p = Settings.p;
+            userControl11.User = Settings.User;
+
+            Mode = enMode.Upper;
         }
         public frmChangePassword(int UserID)
         {
             InitializeComponent();
-            Settings.User = ClsUsers.Find(UserID);
-            Settings.p = clsPeople.Find(Settings.User.PersonID);
+            this.User = ClsUsers.Find(UserID);
+            this.p = clsPeople.Find(User.PersonID);
+            personDetails1.p = p;
+            userControl11.User = User;
+            Mode = enMode.Down;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-            Settings.nullableObject();
 
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
-            if(Settings.User.Password == txbCurrentPassword.Text && (txbNewPassword.Text == txbConfirmPassword.Text))
+            if(Mode == enMode.Upper)
             {
-                Settings.User.Password = txbNewPassword.Text;
-                if (Settings.User.Save())
+                if (Settings.User == null)
                 {
-                    MessageBox.Show("Password Changed Successfully");
+                    return;
+                }
+
+                if (Settings.User.Password == txbCurrentPassword.Text && (txbNewPassword.Text == txbConfirmPassword.Text))
+                {
+                    Settings.User.Password = txbNewPassword.Text;
+                    if (Settings.User.Save())
+                    {
+                        MessageBox.Show("Password Changed Successfully");
+                    }
+                    else
+                        MessageBox.Show("Password Changed Failed");
                 }
                 else
+                {
                     MessageBox.Show("Password Changed Failed");
+
+                }
             }
             else
             {
-                MessageBox.Show("Password Changed Failed");
+                if (User == null)
+                {
+                    return;
+                }
 
+                if (User.Password == txbCurrentPassword.Text && (txbNewPassword.Text == txbConfirmPassword.Text))
+                {
+                    User.Password = txbNewPassword.Text;
+                    if (User.Save())
+                    {
+                        MessageBox.Show("Password Changed Successfully");
+                    }
+                    else
+                        MessageBox.Show("Password Changed Failed");
+                }
+                else
+                {
+                    MessageBox.Show("Password Changed Failed");
+
+                }
             }
+           
         }
 
         private void txbCurrentPassword_Validating(object sender, CancelEventArgs e)

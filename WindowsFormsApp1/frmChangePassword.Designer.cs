@@ -30,7 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.personDetails1 = new WindowsFormsApp1.UsPersonDetails();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.userControl11 = new WindowsFormsApp1.UsUserInfo();
             this.txbCurrentPassword = new System.Windows.Forms.TextBox();
             this.txbNewPassword = new System.Windows.Forms.TextBox();
             this.txbConfirmPassword = new System.Windows.Forms.TextBox();
@@ -39,8 +41,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.userControl11 = new WindowsFormsApp1.UsUserInfo();
-            this.personDetails1 = new WindowsFormsApp1.UsPersonDetails();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -59,6 +59,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
             // 
+            // personDetails1
+            // 
+            this.personDetails1.BackColor = System.Drawing.Color.White;
+            this.personDetails1.Location = new System.Drawing.Point(33, 25);
+            this.personDetails1.Name = "personDetails1";
+            this.personDetails1.Size = new System.Drawing.Size(986, 382);
+            this.personDetails1.TabIndex = 0;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.userControl11);
@@ -68,6 +76,13 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Login Information";
+            // 
+            // userControl11
+            // 
+            this.userControl11.Location = new System.Drawing.Point(32, 25);
+            this.userControl11.Name = "userControl11";
+            this.userControl11.Size = new System.Drawing.Size(990, 114);
+            this.userControl11.TabIndex = 0;
             // 
             // txbCurrentPassword
             // 
@@ -147,20 +162,6 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // userControl11
-            // 
-            this.userControl11.Location = new System.Drawing.Point(32, 25);
-            this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(990, 114);
-            this.userControl11.TabIndex = 0;
-            // 
-            // personDetails1
-            // 
-            this.personDetails1.Location = new System.Drawing.Point(33, 25);
-            this.personDetails1.Name = "personDetails1";
-            this.personDetails1.Size = new System.Drawing.Size(986, 382);
-            this.personDetails1.TabIndex = 0;
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -181,10 +182,13 @@
             this.Controls.Add(this.txbCurrentPassword);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.MaximumSize = new System.Drawing.Size(1094, 1000);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(1094, 900);
             this.MinimumSize = new System.Drawing.Size(1094, 800);
             this.Name = "frmChangePassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmChangePassword";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

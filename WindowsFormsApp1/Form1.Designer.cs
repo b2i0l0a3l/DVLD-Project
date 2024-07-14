@@ -36,16 +36,19 @@
             this.currentUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.singOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.applicationsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.applicationsTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.menuStrip1.BackColor = System.Drawing.Color.Gainsboro;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(50, 50);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.applicationsToolStripMenuItem1,
             this.peopleToolStripMenuItem1,
             this.usersToolStripMenuItem,
             this.accountSettingsToolStripMenuItem});
@@ -54,6 +57,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(1101, 58);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // peopleToolStripMenuItem1
             // 
@@ -78,6 +82,7 @@
             // 
             // accountSettingsToolStripMenuItem
             // 
+            this.accountSettingsToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             this.accountSettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.currentUserInfoToolStripMenuItem,
             this.changePasswordToolStripMenuItem,
@@ -89,38 +94,59 @@
             | System.Windows.Forms.Keys.S)));
             this.accountSettingsToolStripMenuItem.Size = new System.Drawing.Size(224, 54);
             this.accountSettingsToolStripMenuItem.Text = "Account Settings";
+            this.accountSettingsToolStripMenuItem.Click += new System.EventHandler(this.accountSettingsToolStripMenuItem_Click);
             // 
             // currentUserInfoToolStripMenuItem
             // 
             this.currentUserInfoToolStripMenuItem.Font = new System.Drawing.Font("Gill Sans MT", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentUserInfoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("currentUserInfoToolStripMenuItem.Image")));
             this.currentUserInfoToolStripMenuItem.Name = "currentUserInfoToolStripMenuItem";
-            this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(255, 36);
+            this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(296, 60);
             this.currentUserInfoToolStripMenuItem.Text = "Current User Info";
+            this.currentUserInfoToolStripMenuItem.Click += new System.EventHandler(this.currentUserInfoToolStripMenuItem_Click);
             // 
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Font = new System.Drawing.Font("Gill Sans MT", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.changePasswordToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("changePasswordToolStripMenuItem.Image")));
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(255, 36);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(296, 60);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // singOutToolStripMenuItem
             // 
             this.singOutToolStripMenuItem.Font = new System.Drawing.Font("Gill Sans MT", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.singOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("singOutToolStripMenuItem.Image")));
             this.singOutToolStripMenuItem.Name = "singOutToolStripMenuItem";
-            this.singOutToolStripMenuItem.Size = new System.Drawing.Size(255, 36);
+            this.singOutToolStripMenuItem.Size = new System.Drawing.Size(296, 60);
             this.singOutToolStripMenuItem.Text = "Sing Out";
             this.singOutToolStripMenuItem.Click += new System.EventHandler(this.singOutToolStripMenuItem_Click);
+            // 
+            // applicationsToolStripMenuItem1
+            // 
+            this.applicationsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.applicationsTypesToolStripMenuItem});
+            this.applicationsToolStripMenuItem1.Font = new System.Drawing.Font("Gill Sans MT", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.applicationsToolStripMenuItem1.Image = global::WindowsFormsApp1.Properties.Resources._2245126;
+            this.applicationsToolStripMenuItem1.Name = "applicationsToolStripMenuItem1";
+            this.applicationsToolStripMenuItem1.Size = new System.Drawing.Size(188, 54);
+            this.applicationsToolStripMenuItem1.Text = "Applications";
+            // 
+            // applicationsTypesToolStripMenuItem
+            // 
+            this.applicationsTypesToolStripMenuItem.Image = global::WindowsFormsApp1.Properties.Resources._8634230;
+            this.applicationsTypesToolStripMenuItem.Name = "applicationsTypesToolStripMenuItem";
+            this.applicationsTypesToolStripMenuItem.Size = new System.Drawing.Size(309, 60);
+            this.applicationsTypesToolStripMenuItem.Text = "Applications Types";
+            this.applicationsTypesToolStripMenuItem.Click += new System.EventHandler(this.applicationsTypesToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1101, 619);
             this.Controls.Add(this.menuStrip1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -129,6 +155,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -145,6 +172,8 @@
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem singOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem applicationsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem applicationsTypesToolStripMenuItem;
     }
 }
 

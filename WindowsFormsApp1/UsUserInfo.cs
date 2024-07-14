@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class UsUserInfo : UserControl
     {
+        public ClsUsers User;
         public UsUserInfo()
         {
             InitializeComponent();
@@ -20,11 +21,11 @@ namespace WindowsFormsApp1
 
         private void UsUserInfo_Load(object sender, EventArgs e)
         {
-            if(Settings.User != null)
+            if(User != null)
             {
-                label2.Text = Settings.User.UserID.ToString() ;
-                label4.Text= Settings.User.UserName ;
-                label6.Text = Settings.User.IsActive.ToString();
+                label2.Text = User.UserID.ToString() ;
+                label4.Text= User.UserName ;
+                label6.Text = User.IsActive.ToString();
             }
         }
     }

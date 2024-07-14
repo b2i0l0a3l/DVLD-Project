@@ -12,13 +12,9 @@ namespace WindowsFormsApp1
 {
     public partial class UsAddNewPeople 
     {
-       
 
-      
-
+        public clsPeople p;
         public event Action<int> OnPersonSaved;
-
-
         public virtual void PersonSaved(int PersonID)
         {
             Action<int> Handler = OnPersonSaved;
@@ -45,7 +41,7 @@ namespace WindowsFormsApp1
         {
             return Guid.NewGuid().ToString();
         }
-        private string SaveImageTo(string Ext)
+        private string SaveImageTo(string Ext,ref clsPeople p)
         {
            
             string sourceFilePath = pictureBox1.ImageLocation;
@@ -57,26 +53,23 @@ namespace WindowsFormsApp1
 
                 if (!Directory.Exists(destinationDirectory+ destinationFilePath))
                 {
-                    if (Settings.p.ImagePath != "")
+                    if (p.ImagePath != "")
                     {
-                        DeleteImage(Settings.p.ImagePath);
+                        DeleteImage(p.ImagePath);
                     }
                     File.Copy(sourceFilePath, destinationFilePath, overwrite: true);
                 }
                 else { return sourceFilePath; }
             }
-            catch (Exception ex) { return ""; }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
             return destinationFilePath;
         }
         private bool IsEmailExists(string Email)
         {
-            MessageBox.Show(Email);
             DataTable dt = clsPeople.GetAllPeople();
             foreach(DataRow row in dt.Rows)
             {
-                MessageBox.Show(row["Email"].ToString());
-
-                if (Email == row["Email"].ToString())
+                if (Email.Trim() == row["Email"].ToString())
                 {
                     return true;
                 }
@@ -103,30 +96,31 @@ namespace WindowsFormsApp1
         private void LoadPersonData()
         {
 
-            if (Settings.p == null)
-            {
-                return;
-            }
-            txbFirstName.Text = Settings.p.FirstName;
-            txbSecondName.Text = Settings.p.SecondName;
-            txbThirdName.Text = Settings.p.ThirdName;
-            txbLasttName.Text = Settings.p.LastName;
-            txbNationalNo.Text = Settings.p.NationalNo;
-            comboBox1.SelectedIndex = Settings.p.Nationality -1;
-            dateTimePicker1.Value = Settings.p.DateOfBirth;
+        
+            txbFirstName.Text = p.FirstName;
+            txbSecondName.Text = p.SecondName;
+            txbThirdName.Text = p.ThirdName;
+            txbLasttName.Text = p.LastName;
+            txbNationalNo.Text = p.NationalNo;
+            comboBox1.SelectedIndex = p.Nationality -1;
+            dateTimePicker1.Value = p.DateOfBirth;
 
-            if (Settings.p.Gendor == 0)
+            if (p.Gendor == 0)
                 rdMale.Checked = true;
             else
                 rdFemale.Checked = true;
 
-            txbPhone.Text = Settings.p.Phone;
-            txbEmail.Text = Settings.p.Email;
-            txbAddress.Text = Settings.p.Address;
+            txbPhone.Text = p.Phone;
+            txbEmail.Text = p.Email;
+            txbAddress.Text = p.Address;
 
-            if (!string.IsNullOrEmpty(Settings.p.ImagePath))
+            if (!string.IsNullOrEmpty(p.ImagePath))
             {
-                pictureBox1.Load(Settings.p.ImagePath);
+                if (!File.Exists(p.ImagePath))
+                {
+                    return;
+                }
+                pictureBox1.Load(p.ImagePath);
                 linkLabel1.Visible = true;
             }
             else
@@ -138,31 +132,32 @@ namespace WindowsFormsApp1
 
         private void SavePersonDAta()
         {
-            Settings.p.Nationality = comboBox1.SelectedIndex + 1;
-            Settings.p.NationalNo = txbNationalNo.Text;
-            Settings.p.DateOfBirth = dateTimePicker1.Value;
-            Settings.p.ThirdName = txbThirdName.Text;
-            Settings.p.LastName = txbLasttName.Text;
-            Settings.p.FirstName = txbFirstName.Text;
-            Settings.p.SecondName = txbSecondName.Text;
-            Settings.p.Phone = txbPhone.Text;
-            Settings.p.Email = txbEmail.Text;
-            Settings.p.Address = txbAddress.Text;
+            
+            p.Nationality = comboBox1.SelectedIndex + 1;
+            p.NationalNo = txbNationalNo.Text;
+            p.DateOfBirth = dateTimePicker1.Value;
+            p.ThirdName = txbThirdName.Text;
+            p.LastName = txbLasttName.Text;
+            p.FirstName = txbFirstName.Text;
+            p.SecondName = txbSecondName.Text;
+            p.Phone = txbPhone.Text;
+            p.Email = txbEmail.Text;
+            p.Address = txbAddress.Text;
 
             if ((pictureBox1.ImageLocation != "" && pictureBox1.ImageLocation != null  ) && pictureBox1.Image != null )
             {
                 string Ext = pictureBox1.ImageLocation.Split('.')[pictureBox1.ImageLocation.Split('.').Length - 1];
-                Settings.p.ImagePath = SaveImageTo(Ext);
+                p.ImagePath = SaveImageTo(Ext,ref p);
             }
             else
-                Settings.p.ImagePath = null;
+                p.ImagePath = null;
 
 
 
             if (rdFemale.Checked)
-                Settings.p.Gendor = 1;
+                p.Gendor = 1;
             else
-                Settings.p.Gendor = 0;
+                p.Gendor = 0;
 
         }
      
@@ -182,6 +177,8 @@ namespace WindowsFormsApp1
             RadioChanged();
             dateTimePicker1.MaxDate = GetTime();
             comboBox1.SelectedIndex = comboBox1.FindString("Morocco");
+            if(p!= null)
+                LoadPersonData();
         }
 
     

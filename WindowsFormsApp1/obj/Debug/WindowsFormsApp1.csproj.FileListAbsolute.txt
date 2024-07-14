@@ -24,3 +24,5 @@ C:\Users\bilal\OneDrive\C#\WorkOut\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.f
 C:\Users\bilal\OneDrive\C#\WorkOut\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.UsUserInfo.resources
 C:\Users\bilal\OneDrive\C#\WorkOut\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.UsPersonDetails.resources
 C:\Users\bilal\OneDrive\C#\WorkOut\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.UsAddNewPeople.resources
+C:\Users\bilal\OneDrive\C#\WorkOut\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmUserInfo.resources
+C:\Users\bilal\OneDrive\C#\WorkOut\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmManageApplicationsType.resources
